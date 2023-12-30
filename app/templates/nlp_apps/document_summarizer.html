@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document Summarization App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/document_summarizer.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Document Summarization App</h2>
+        <form id="summarizeForm">
+            <label for="document">Enter your document:</label>
+            <textarea id="document" name="document" rows="10" cols="50" placeholder="Paste your document here..." required></textarea>
+            <button type="submit">Summarize Document</button>
+        </form>
+        <hr>
+        <div id="summaryArea">
+            <!-- Summary will be displayed here -->
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/document_summarizer.js') }}"></script>
+</body>
+</html>

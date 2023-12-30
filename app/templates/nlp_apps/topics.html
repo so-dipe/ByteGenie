@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Topic Extraction App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/topics.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Topic Extraction App</h2>
+        <form id="topicsForm">
+            <label for="document">Enter your document:</label>
+            <textarea id="document" name="document" rows="10" cols="50" placeholder="Paste your document here..." required></textarea>
+            <button type="submit">Extract Topics</button>
+        </form>
+        <hr>
+        <div id="topicsArea">
+            <!-- Extracted topics will be displayed here -->
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/topics.js') }}"></script>
+</body>
+</html>

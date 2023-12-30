@@ -15,7 +15,7 @@ def generate_answer(question):
     return clean_response(response)
 
 # Example usage
-if __name__ == "__main__":
-    ans = generate_answer("what were the interest rate swaps for december 2020?")
-    print(ans)
+# if __name__ == "__main__":
+#     ans = generate_answer("what were the interest rate swaps for december 2020?")
+#     print(ans)
     
