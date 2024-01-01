@@ -1,0 +1,8 @@
+#ignore environment file
+.env
+
+#ignore python virtual environment
+backend/bytegenie
+
+#ignore node modules
+frontend/node_modules
