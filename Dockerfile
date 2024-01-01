@@ -13,6 +13,7 @@ RUN pip install -r backend/requirements.txt
 
 WORKDIR /app/frontend
 RUN npm install
+RUN npm run build
 
 # Copy supervisord configuration file
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
