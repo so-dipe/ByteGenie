@@ -1,8 +1,16 @@
+// import { baseUrl } from '../config'; 
 import React, { useState } from 'react';
+import './QuestionAnswering.css'; 
+import SendIcon from '@mui/icons-material/Send';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useNavigate } from 'react-router-dom';
+import { baseUri } from '../config'
 
 const QuestionAnswering = () => {
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
+
+  const navigate = useNavigate();
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -10,10 +18,9 @@ const QuestionAnswering = () => {
       const formData = new FormData();
       formData.append('question', question);
 
-      const response = await fetch('/answer', {
+      const response = await fetch(`${baseUri}/answer`, {
         method: 'POST',
         headers: {
-          // Assuming the backend expects JSON data
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ question }),
@@ -28,30 +35,32 @@ const QuestionAnswering = () => {
   };
 
   return (
-    <div>
-      <h1>Question Answering</h1>
+    <div className="qa-container">
+      <h1>Ask a Question</h1>
       <form id="qaForm" onSubmit={handleFormSubmit}>
-        <input
-          type="text"
+        <textarea
+          rows="4"
+          cols="50"
           name="question"
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
           placeholder="Ask your question here..."
           required
         />
-        <br />
-        <button type="submit">Get Answer</button>
+        <button type="submit" className="send-button">
+          <SendIcon />
+        </button>
       </form>
       {answer && (
-        <div>
+        <div className="results-box">
           <p>
-            <strong>Question:</strong> {question}
-          </p>
-          <p>
-            <strong>Answer:</strong> {answer}
+            {answer}
           </p>
         </div>
       )}
+      <button onClick={() => navigate('/')} className="back-button">
+        <ArrowBackIcon />
+      </button>
     </div>
   );
 };

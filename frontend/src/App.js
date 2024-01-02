@@ -1,23 +1,25 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import QuestionAnswering from './components/QuestionAnswering';
 import DocumentSummarizing from './components/DocumentSummarizing';
 import TopicExtractor from './components/TopicExtractor';
+import './App.css';
 
 const Index = () => {
   return (
-    <div>
-      <h1>Welcome to NLP Apps</h1>
+    <div className="center-content">
+      <h1>ByteGenie NLP App</h1>
+      <p>what do you want to do?</p>
       <nav>
-        <ul>
+        <ul className="button-list"> {/* Use a class for styling buttons */}
           <li>
-            <a href="/question_answering">Question Answering</a>
+            <Link to="/question_answering" className="button">Question Answering</Link>
           </li>
           <li>
-            <a href="/document_summarizing">Document Summarizing</a>
+            <Link to="/document_summarizing" className="button">Document Summarizing</Link>
           </li>
           <li>
-            <a href="/topic_extractor">Topic Extractor</a>
+            <Link to="/topic_extractor" className="button">Topic Extractor</Link>
           </li>
         </ul>
       </nav>

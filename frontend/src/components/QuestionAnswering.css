@@ -1,0 +1,51 @@
+.qa-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .qa-container textarea {
+    height: 125px;
+    max-height: 125px;
+    overflow-y: auto;
+    resize: vertical;
+    border-radius: 15px;
+    border: 2px solid;
+  }
+  
+  /* Button positioning */
+  .qa-container form {
+    display: flex;
+    align-items: center;
+  }
+  
+  .send-button {
+    background: None;
+    border: None;
+    padding: None;
+  }
+
+  .send-button:hover {
+    background: #ddd;
+    border-radius: 10px;
+  }
+
+  .results-box {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-top: 20px;
+    background: #eee;
+    width: 600px;
+  }
+
+  .back-button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }

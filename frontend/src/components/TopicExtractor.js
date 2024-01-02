@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
+import './DocumentSummarizing.css'; 
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useNavigate } from 'react-router-dom';
+import { baseUri } from '../config'
 
 const TopicExtractor = () => {
   const [documentText, setDocumentText] = useState('');
   const [topics, setTopics] = useState([]);
+
+  const navigate = useNavigate();
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -10,7 +16,7 @@ const TopicExtractor = () => {
       const formData = new FormData();
       formData.append('document', documentText);
 
-      const response = await fetch('/get_topics', {
+      const response = await fetch(`${baseUri}/get_topics`, {
         method: 'POST',
         headers: {
           // Assuming the backend expects JSON data
@@ -28,8 +34,8 @@ const TopicExtractor = () => {
   };
 
   return (
-    <div>
-      <h1>Topic Extractor</h1>
+    <div className="summarize-container">
+      <h1>Extract Topics</h1>
       <form id="topicsForm" onSubmit={handleFormSubmit}>
         <textarea
           name="document"
@@ -37,14 +43,14 @@ const TopicExtractor = () => {
           onChange={(e) => setDocumentText(e.target.value)}
           rows={10}
           cols={50}
-          placeholder="Enter your document here..."
+          placeholder="Paste document here..."
           required
         />
         <br />
-        <button type="submit">Extract Topics</button>
+        <button type="submit">Submit</button>
       </form>
       {topics.length > 0 && (
-        <div>
+        <div className="results-box">
           <p>
             <strong>Extracted Topics:</strong>
           </p>
@@ -55,6 +61,9 @@ const TopicExtractor = () => {
           </ul>
         </div>
       )}
+      <button onClick={() => navigate('/')} className="back-button">
+        <ArrowBackIcon />
+      </button>
     </div>
   );
 };

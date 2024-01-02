@@ -10,6 +10,7 @@ COPY . .
 
 RUN pip install -r backend/requirements.txt
 
+RUN python last_resort.py
 
 WORKDIR /app/frontend
 RUN npm install
