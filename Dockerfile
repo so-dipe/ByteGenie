@@ -1,24 +1,13 @@
-FROM python:3.10-slim
-
-RUN apt-get update && apt-get install -y nodejs npm
-
-RUN apt-get install -y supervisor
+FROM node:16-alpine 
 
 WORKDIR /app
 
-COPY . .
+COPY package*.json ./ 
+RUN npm install  
+COPY . .  
 
-RUN pip install -r backend/requirements.txt
+RUN npm run build 
 
-RUN python last_resort.py
+EXPOSE 3000
 
-WORKDIR /app/frontend
-RUN npm install
-RUN npm run build
-
-# Copy supervisord configuration file
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-EXPOSE 5000 3000
-
-CMD ["/usr/bin/supervisord"]
+CMD ["npm", "start"]
