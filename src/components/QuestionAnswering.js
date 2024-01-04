@@ -1,19 +1,20 @@
-// import { baseUrl } from '../config'; 
 import React, { useState } from 'react';
-import './QuestionAnswering.css'; 
+import './QuestionAnswering.css';
 import SendIcon from '@mui/icons-material/Send';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from 'react-router-dom';
-import { baseUri } from '../config'
+import { baseUri } from '../config';
 
 const QuestionAnswering = () => {
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const formData = new FormData();
       formData.append('question', question);
@@ -31,6 +32,8 @@ const QuestionAnswering = () => {
       setAnswer(generatedAnswer);
     } catch (error) {
       console.error('Error:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -51,11 +54,10 @@ const QuestionAnswering = () => {
           <SendIcon />
         </button>
       </form>
-      {answer && (
+      {loading && <p>loading result, please wait...</p>} 
+      {answer && !loading && (
         <div className="results-box">
-          <p>
-            {answer}
-          </p>
+          <p>{answer}</p>
         </div>
       )}
       <button onClick={() => navigate('/')} className="back-button">

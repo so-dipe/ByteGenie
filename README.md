@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# ByteGenie Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The frontend was built using ReactJs, check out the backend api here ()[]
 
-## Available Scripts
+## Key Functionalities
 
-In the project directory, you can run:
+- Ask questions about a document. This currently works best for contents in the `text_segments.csv` file but it can be improved to work on externally uploaded docs.
+- Get a summary on a document. 
+- Generate topics from a document.
 
-### `npm start`
+## API Endpoints Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- /question_answering *for asking questions related to a document.
+- /document_summarizing *for generating summaries for a document.
+- /topic_extractor *for getting topics from a document
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Challenges Faced
 
-### `npm test`
+- I am not very familiar with working with React and it presented a steep learning curve.
+- I couldn't set-up an environment variable because of a weird error when compiling the code.
+- The loading interface used during requests could have been better when I wasn't able to fix the error I was having with it in time.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Improvements and Future Work
 
-### `npm run build`
+- A better UI/UX.
+- Ability to upload documents for question answering purposes and retrieve them on request.
+- Converting the one question interface of question answering to a Chat Interface to make detailed conversation about contents in the document.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Setup Instructions
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- simply run `npm start`, all backend requests are routed to a docker container on GCP.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- ## Technologies Used
 
-### `npm run eject`
+- List the main technologies, frameworks, or libraries used in building the front-end.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Contributors
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Acknowledge contributors or team members who participated in creating the UI.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## License
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Specify the project's license information if applicable. -->

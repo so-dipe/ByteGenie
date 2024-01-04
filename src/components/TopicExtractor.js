@@ -7,11 +7,13 @@ import { baseUri } from '../config'
 const TopicExtractor = () => {
   const [documentText, setDocumentText] = useState('');
   const [topics, setTopics] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const formData = new FormData();
       formData.append('document', documentText);
@@ -30,6 +32,8 @@ const TopicExtractor = () => {
       setTopics(extractedTopics);
     } catch (error) {
       console.error('Error:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -49,7 +53,8 @@ const TopicExtractor = () => {
         <br />
         <button type="submit">Submit</button>
       </form>
-      {topics.length > 0 && (
+      {loading && <p>loading result, please wait...</p>} 
+      {topics.length > 0 && !loading && (
         <div className="results-box">
           <p>
             <strong>Extracted Topics:</strong>

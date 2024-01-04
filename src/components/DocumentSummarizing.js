@@ -7,11 +7,13 @@ import { baseUri } from '../config'
 const DocumentSummarizing = () => {
   const [documentText, setDocumentText] = useState('');
   const [summary, setSummary] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const formData = new FormData();
       formData.append('document', documentText);
@@ -30,6 +32,8 @@ const DocumentSummarizing = () => {
       setSummary(generatedSummary);
     } catch (error) {
       console.error('Error:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -49,7 +53,8 @@ const DocumentSummarizing = () => {
         <br />
         <button type="submit">Summarize</button>
       </form>
-      {summary && (
+      {loading && <p>loading result, please wait...</p>} 
+      {summary && !loading && (
         <div className="results-box">
           <p>
             <strong>Generated Summary:</strong>
