@@ -1,34 +1,35 @@
 # ByteGenie Frontend
 
-The frontend was built using ReactJs, check out the backend api here ()[]
+- [Link to the App](https://sodipe-bytegenie-ptjrsgbh3q-uc.a.run.app/)
+- [Backend API Repo](https://github.com/so-dipe/ByteGenie/tree/backend)
 
 ## Key Functionalities
 
-- Ask questions about a document. This currently works best for contents in the `text_segments.csv` file but it can be improved to work on externally uploaded docs.
-- Get a summary on a document. 
-- Generate topics from a document.
+- Ask questions about a document, primarily designed for contents in the `text_segments.csv` file.
+- Get summaries for documents.
+- Extract topics from documents.
 
 ## API Endpoints Used
 
-- /question_answering *for asking questions related to a document.
-- /document_summarizing *for generating summaries for a document.
-- /topic_extractor *for getting topics from a document
+- **/question_answering:** For asking document-related questions.
+- **/document_summarizing:** Generates summaries for documents.
+- **/topic_extractor:** Retrieves topics from documents.
 
 ## Challenges Faced
 
-- I am not very familiar with working with React and it presented a steep learning curve.
-- I couldn't set-up an environment variable because of a weird error when compiling the code.
-- The loading interface used during requests could have been better when I wasn't able to fix the error I was having with it in time.
+- Learning React presented a steep learning curve due to being unfamiliar with the framework.
+- Encountered difficulties setting up environment variables due to an error during code compilation.
+- Issues with the loading interface during requests could not be resolved within the given time frame.
 
 ## Improvements and Future Work
 
-- A better UI/UX.
-- Ability to upload documents for question answering purposes and retrieve them on request.
-- Converting the one question interface of question answering to a Chat Interface to make detailed conversation about contents in the document.
+- Enhance UI/UX design for a better user experience.
+- Implement document uploads for question answering and retrieval.
+- Convert the single-question interface for question answering into a conversational chat interface.
 
 ## Setup Instructions
 
-- simply run `npm start`, all backend requests are routed to a docker container on GCP.
+- Run `npm start` to launch the frontend. Backend requests are routed to a GCP-hosted Docker container.
 
 <!-- ## Technologies Used
 
